@@ -1,0 +1,524 @@
+/*
+ * Archivo: estilos.css
+ * Descripción: Estilos para el sitio web 'IA Educa'
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Playfair+Display:wght@700&display=swap');
+
+:root {
+    --color-fondo-principal: #0F0E17; /* Fondo oscuro, casi negro */
+    --color-primario: #FF8906; /* Naranja vibrante para acentos (similar al color de la segunda imagen) */
+    --color-secundario: #E53170; /* Rosa/Púrpura para acentos secundarios */
+    --color-texto-claro: #FFFFFE;
+    --color-texto-suave: #A7A9BE;
+    --color-card-fondo: rgba(25, 26, 40, 0.8); /* Fondo de tarjetas semitransparente oscuro */
+}
+
+/* -------------------- Estilos Generales -------------------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: var(--color-fondo-principal);
+    color: var(--color-texto-claro);
+    /* Placeholder para la imagen de fondo del usuario. REEMPLAZAR con la ruta de su imagen: */
+    background-image: url('multimedia/1.jpeg'); 
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--color-primario);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-primario);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--color-secundario);
+}
+
+/* -------------------- Encabezado y Navegación Principal -------------------- */
+
+.header {
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente para sofisticación */
+    padding: 15px 50px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.nav-principal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo a {
+    font-size: 2em;
+    font-weight: bold;
+    color: var(--color-texto-claro);
+    letter-spacing: 2px;
+}
+.logo {
+    display: flex;
+    align-items: center; /* Centra verticalmente el logo con el texto */
+    gap: 10px; /* Espacio entre logo y texto */
+}
+
+.logo-img {
+    width: 80px; /* Ajusta el tamaño del logo */
+    height: 80px; /* Mantiene proporción cuadrada */
+    object-fit: contain; /* Evita que se deforme */
+}
+
+.menu-principal {
+    list-style: none;
+    display: flex;
+}
+
+.menu-principal li {
+    margin-left: 30px;
+}
+
+.menu-principal a {
+    color: var(--color-texto-claro);
+    font-size: 1.1em;
+    padding: 5px 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Animación de línea al pasar el ratón */
+.menu-principal a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: -100%;
+    width: 100%;
+    height: 3px;
+    background-color: var(--color-primario);
+    transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.menu-principal a:hover::after {
+    left: 0;
+}
+
+/* -------------------- Contenedor Principal (Flexbox) -------------------- */
+
+.main-container {
+    display: flex;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+/* -------------------- Menú Lateral Fijo (IAs.html - Simulación) -------------------- */
+
+.menu-lateral-ia {
+    width: 250px;
+    flex-shrink: 0;
+    margin-right: 30px;
+    padding: 20px;
+    background-color: var(--color-card-fondo);
+    border-radius: 15px;
+    position: sticky;
+    top: 100px; /* Debajo del header fijo */
+    height: fit-content;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.menu-lateral-ia h3 {
+    color: var(--color-secundario);
+    margin-bottom: 15px;
+    border-bottom: 2px solid var(--color-secundario);
+    padding-bottom: 10px;
+    font-size: 1.5em;
+    text-align: left;
+}
+
+.menu-lateral-ia ul {
+    list-style: none;
+}
+
+.menu-lateral-ia li {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.menu-lateral-ia li:last-child {
+    border-bottom: none;
+}
+
+.menu-lateral-ia a {
+    color: var(--color-texto-suave);
+    font-weight: 500;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.menu-lateral-ia a:hover {
+    color: var(--color-primario);
+    transform: translateX(5px);
+    font-weight: bold;
+}
+
+/* -------------------- Contenido Principal (Index, IAs, Importancia, Contacto) -------------------- */
+
+.main-content {
+    flex-grow: 1;
+    min-height: 70vh;
+    padding: 30px;
+    background-color: rgba(15, 14, 23, 0.9); /* Fondo ligeramente más opaco */
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+}
+
+/* Estilos de la sección de Inicio (index.html) */
+.intro-section {
+    text-align: center;
+    padding: 40px;
+    border-radius: 15px;
+    background: linear-gradient(135deg, var(--color-card-fondo), rgba(30, 30, 50, 0.8));
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    margin-bottom: 40px;
+}
+
+.intro-section h2 {
+    color: var(--color-primario);
+    font-size: 2.5em;
+    margin-bottom: 15px;
+}
+
+.intro-section p {
+    font-size: 1.1em;
+    color: var(--color-texto-suave);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* -------------------- Estilos de la Sección de Inteligencias Artificiales (inteligencias.html) -------------------- */
+
+.ia-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 20px 0;
+}
+
+.ia-card {
+    background-color: var(--color-card-fondo);
+    border-radius: 20px;
+    padding: 25px;
+    text-align: center;
+    border: 2px solid transparent;
+    transition: all 0.5s ease-in-out;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Animación sofisticada para la tarjeta */
+.ia-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    border-color: var(--color-primario);
+    box-shadow: 0 15px 35px rgba(255, 137, 6, 0.5); /* Sombra de neón */
+}
+
+/* Efecto de brillo sutil en hover */
+.ia-card::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent);
+    transition: all 0.7s ease;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+}
+
+.ia-card:hover::before {
+    opacity: 1;
+    width: 0%;
+    height: 0%;
+}
+
+
+.ia-logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 3px solid var(--color-secundario);
+    transition: transform 0.4s ease;
+}
+
+.ia-card:hover .ia-logo {
+    transform: rotate(360deg) scale(1.1);
+    border-color: var(--color-primario);
+}
+
+.ia-card h3 {
+    color: var(--color-texto-claro);
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+
+.ia-card p {
+    color: var(--color-texto-suave);
+    margin-bottom: 20px;
+    font-size: 0.95em;
+}
+
+.ia-link {
+    display: inline-block;
+    padding: 8px 20px;
+    background-color: var(--color-primario);
+    color: var(--color-fondo-principal);
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.ia-link:hover {
+    background-color: var(--color-secundario);
+    color: var(--color-texto-claro);
+    transform: scale(1.05);
+}
+
+/* -------------------- Estilos de la Sección de Importancia (importancia.html) -------------------- */
+
+.importancia-content {
+    padding: 20px;
+    text-align: center;
+}
+
+.importancia-content p {
+    font-size: 1.1em;
+    color: var(--color-texto-suave, #555); /* valor por defecto por si no existe la variable */
+    margin-bottom: 30px;
+    text-align: justify;
+}
+
+/* Versión correcta para video local */
+.video-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(255, 137, 6, 0.4);
+    background-color: #000; /* para evitar fondo blanco al rededor */
+}
+
+.video-container video {
+    width: 100%;
+    height: auto; /* mantiene proporción natural */
+    display: block;
+    border: none;
+    object-fit: cover; /* llena bien el cuadro */
+}
+
+
+/* -------------------- Estilos de la Sección de Contacto (contacto.html) -------------------- */
+
+.contacto-grid {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+.formulario-contacto {
+    flex-basis: 60%;
+    background-color: var(--color-card-fondo);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+.formulario-contacto h3 {
+    text-align: left;
+    color: var(--color-primario);
+    margin-bottom: 20px;
+}
+
+.formulario-contacto label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: var(--color-texto-claro);
+}
+
+.formulario-contacto input[type="text"],
+.formulario-contacto input[type="email"],
+.formulario-contacto textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid var(--color-secundario);
+    border-radius: 8px;
+    background-color: var(--color-fondo-principal);
+    color: var(--color-texto-claro);
+    font-size: 1em;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.formulario-contacto input:focus,
+.formulario-contacto textarea:focus {
+    border-color: var(--color-primario);
+    outline: none;
+    box-shadow: 0 0 8px rgba(255, 137, 6, 0.6);
+}
+
+.formulario-contacto textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+.btn-enviar {
+    display: inline-block;
+    padding: 12px 30px;
+    background: linear-gradient(90deg, var(--color-primario), var(--color-secundario));
+    color: var(--color-fondo-principal);
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    text-transform: uppercase;
+}
+
+.btn-enviar:hover {
+    transform: translateY(-3px);
+    opacity: 0.9;
+}
+
+.mensaje-exito {
+    text-align: center;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: rgba(60, 179, 113, 0.2); /* Verde semitransparente */
+    color: #3CB371;
+    border-radius: 5px;
+    font-weight: bold;
+    display: none; /* Se mostrará con JavaScript */
+}
+
+.info-desarrollador {
+    flex-basis: 40%;
+    padding: 30px;
+    background-color: var(--color-card-fondo);
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+.info-desarrollador h3 {
+    text-align: left;
+    color: var(--color-secundario);
+    border-bottom: 2px solid var(--color-primario);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.info-desarrollador p {
+    margin-bottom: 15px;
+    color: var(--color-texto-suave);
+}
+
+.redes-sociales {
+    margin-top: 25px;
+    display: flex;
+    gap: 20px;
+}
+
+.redes-sociales a {
+    font-size: 2em;
+    color: var(--color-texto-claro);
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.redes-sociales a:hover {
+    transform: scale(1.2);
+    color: var(--color-primario);
+}
+
+/* -------------------- Pie de Página -------------------- */
+
+.footer {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: var(--color-texto-suave);
+    text-align: center;
+    padding: 20px;
+    border-top: 3px solid var(--color-primario);
+    margin-top: 50px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    font-size: 0.9em;
+}
+
+/* -------------------- Media Queries (Responsiveness) -------------------- */
+
+@media (max-width: 900px) {
+    .main-container {
+        flex-direction: column;
+        padding: 0 10px;
+    }
+
+    .menu-lateral-ia {
+        width: 100%;
+        position: static;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .nav-principal {
+        flex-direction: column;
+    }
+
+    .menu-principal {
+        margin-top: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .menu-principal li {
+        margin: 5px 15px;
+    }
+
+    .contacto-grid {
+        flex-direction: column;
+    }
+
+    .formulario-contacto, .info-desarrollador {
+        flex-basis: 100%;
+    }
+}
